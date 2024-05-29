@@ -1,0 +1,290 @@
+/* styles.css */
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://images.wallpapersden.com/image/download/the-creator-movie-poster_bmZtZmuUmZqaraWkpJRobWllrWdma2U.jpg') ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #231e26; /* Main text color */
+  }
+  
+  /* Header styles */
+  header {
+    color: #f8f7f6; /* Light gray */
+    padding: 20px;
+  }
+  
+  /* Navigation styles */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(39, 35, 58, 0.8);
+    border-radius: 10px;
+  }
+  
+  .logo img {
+    width: 50px;
+    margin-right: 10px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin-right: 20px;
+  }
+  
+  .nav-links a {
+    color: #f8f7f6; /* Light gray */
+    text-decoration: none;
+  }
+  
+  /* Hero section styles */
+  .hero {
+    max-width: 60%;
+    text-align: left;
+    margin-top: 15%;
+  }
+  
+  .hero h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .btn {
+    background-color: #7e809f; /* Grayish blue */
+    color: #f8f7f6; /* Light gray */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #006aff; /* Dark gray */
+  }
+  
+  /* Footer styles */
+  footer {
+    background-color: #828283; /* Dark gray */
+    color: #f8f7f6; /* Light gray */
+    text-align: center;
+    padding: 20px;
+    bottom: 0%;
+    position: absolute;
+    width: 100%;
+  }
+  /* LOGIN styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  body{
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /*background: #f8f7f6;*/
+    color: #231e26; /* Main text color */
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    background: rgba(39, 35, 58, 0.8);
+    text-align: center;
+    padding: 20px 25px;
+    box-shadow: #231e26;
+  }
+  form .title{
+    font-size: 35px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: white;
+  }
+  
+  .logintxt{
+    font-size: 25px;
+    color: white;
+  }
+  
+  input{
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #7e809f;
+    border-radius: 13px;
+    outline: none;
+  }
+  
+  .error-message{
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: bold;
+    text-align: center;
+    visibility: hidden;
+  }
+  
+  .title{
+    color: white;
+  }
+  
+  .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    border-radius: 10px;
+  }
+  
+  /* Form Container styles */
+.form-container {
+  max-width: 800px; /* Mantener el ancho máximo */
+  margin: 50px auto;
+  padding: 20px;
+  background-color: rgba(39, 35, 58, 0.8);
+  color: #f8f7f6; /* Gris claro */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #f8f7f6; /* Gris claro */
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Distribuir el label y el input */
+  margin-bottom: 15px;
+  flex-wrap: nowrap; /* Asegurar diseño no responsivo para alinear en la misma línea */
+}
+
+.form-group label {
+  width: 40%; /* Ancho ajustado para más espacio */
+  margin-right: 10px;
+  font-weight: bold;
+  color: #f8f7f6; /* Gris claro */
+}
+
+.form-group input,
+.form-group select {
+  width: 60%; /* Ancho ajustado */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+  justify-content: flex-start; /* Alinear elementos a la izquierda */
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 10px; /* Espacio entre el checkbox y el label */
+}
+
+.checkbox-group label {
+  font-weight: normal;
+  color: #f8f7f6; /* Gris claro */
+  width: auto; /* Permitir que el label tome el espacio necesario */
+  flex: none; /* Evitar que el label tome todo el espacio restante */
+  text-align: left; /* Alinear texto a la izquierda */
+}
+
+.btn {
+  width: auto; /* Ajustar ancho del botón */
+  background-color: #7e809f; /* Azul grisáceo */
+  color: #f8f7f6; /* Gris claro */
+  padding: 10px 20px; /* Reducir padding */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #555;
+}
+
+/* Ajustar la posición del footer para la página del formulario */
+footer {
+  background-color: #828283; /* Gris oscuro */
+  color: #f8f7f6; /* Gris claro */
+  text-align: center;
+  padding: 20px;
+  bottom: 0;
+  width: 100%;
+  position: relative;
+}
+.popup-message {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  text-align: center;
+}
+.popup-message.show {
+  display: block;
+}
+
+.error-message {
+  display: none;
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  font-weight: bold;
+  text-align: left;
+  position: absolute; /* Posición absoluta para los mensajes de error */
+  right: 0; /* Alineación a la derecha */
+  top: 50%;
+  transform: translateY(-50%); /* Centrar verticalmente */
+  background-color: #f8d7da; /* Fondo rojo claro */
+  border: 1px solid #f5c6cb; /* Borde rojo */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 5px; /* Espaciado interno */
+  z-index: 1000; /* Asegurar que se muestren sobre otros elementos */
+}
+
+.error-message.show {
+  display: block;
+}
+
+.input-error {
+  border-color: red;
+}
+
+.popup-message.show {
+  display: block;
+}
