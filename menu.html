@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,29 +7,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styleMenu.css">
 </head>
-
 <body>
     <header>
-        <nav>
-            <a href="index.html">
-                <div class="logo">
-                    <img src="img/icon.png" alt="Peliculón Logo" class="icon">
-                    <h1 class="title">Peliculón VOD</h1>
-                </div>
-            </a>
-            <ul class="nav-links">
-                <li><a href="form.html" class="btn">Solicitar película</a></li>
-            </ul>
-        </nav>
+    <nav>
+        <a href="index.html">
+        <div class="logo">
+          <img src="icon.svg" alt="Peliculón Logo" class="icon">
+          <h1 class="title">Peliculón VOD</h1>
+        </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="login.html" class="btn">Solicitar película</a></li>
+        </ul>
+      </nav>
     </header>
+
+    <!--aquí van los botones de las pelis-->
+  
 
     <div class="topnav" id="myTopnav">
         <a href="menu.html" class="active">Inicio</a>
-        <a href="form.html">Solicitar película</a>
+        <a href="#news">Solicitar película</a>
         <a href="javascript:void(0);" class="icon" onclick="burger()">
             <i style="font-size:24px"><img src="img/menu_24dp.svg" height="32px"></i></i>
+                        <button onclick="location.href='pelicula.html?id=tt0111161'">The Shawshank Redemption</button>
+
         </a>
-    </div>
+      </div>
 
 
     <div class="carousel">
@@ -55,7 +58,22 @@
     </form>
     <div id="movie-container"></div>
 
-    <script src="js/app.js"></script>
-</body>
 
+    <main>
+        <section id="movie-list">
+      
+            <href='pelicula.html?id=tt0068646'>The Godfather</button>
+            <href='pelicula.html?id=tt0071562'>The Godfather: Part II</button>
+            <location.href='pelicula.html?id=tt0468569'>The Dark Knight</button>
+            <location.href='pelicula.html?id=tt0050083'>12 Angry Men</button>
+            <location.href='pelicula.html?id=tt0108052'>Schindler's List</button>
+            <location.href='pelicula.html?id=tt0167260'>The Lord of the Rings: The Return of the King</button>
+            <location.href='pelicula.html?id=tt0110912'>Pulp Fiction</button>
+        </section>
+   
+  
+    <script src="js/app.js"></script>
+</main>
+
+</body>
 </html>

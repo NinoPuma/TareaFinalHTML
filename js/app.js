@@ -1,229 +1,147 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Manejo del formulario de login
+  // Validación de inicio de sesión
   let loginForm = document.getElementById('loginForm');
   if (loginForm) {
-    loginForm.addEventListener('submit', function (event) {
-      event.preventDefault();
-      var username = document.getElementById('username').value;
-      var password = document.getElementById('password').value;
+      loginForm.addEventListener('submit', function(event) {
+          event.preventDefault();
+          var username = document.getElementById('username').value;
+          var password = document.getElementById('password').value;
 
-      // Dummy validation (replace with actual validation logic)
-      if (username === 'admin' && password === '1234') {
-        // Successful login, redirect to menu page
-        window.location.href = 'menu.html';
-      } else {
-        // Display error message
-        var errorMessage = document.getElementById('errorMessage');
-        errorMessage.style.visibility = 'visible';
-      }
-    });
+          // Validación ficticia (reemplazar con la lógica de validación real)
+          if (username === 'admin' && password === '1234') {
+              // Inicio de sesión exitoso, redirigir a la página del menú
+              window.location.href = 'menu.html';
+          } else {
+              // Mostrar mensaje de error
+              var errorMessage = document.getElementById('errorMessage');
+              errorMessage.style.visibility = 'visible';
+          }
+      });
   }
 
-  // Carrusel
+  // Funcionalidad del carrusel
   let currentIndex = 0;
 
   function moveSlide(direction) {
-    const items = document.querySelectorAll('.carousel-item');
-    const totalItems = items.length;
+      const items = document.querySelectorAll('.carousel-item');
+      const totalItems = items.length;
 
-    items[currentIndex].classList.remove('active');
+      console.log('Current Index:', currentIndex); // Agregado para depuración
+      console.log('Direction:', direction); // Agregado para depuración
 
-    currentIndex = (currentIndex + direction + totalItems) % totalItems;
+      items[currentIndex].classList.remove('active');
 
-    items[currentIndex].classList.add('active');
-    document.querySelector('.carousel-inner').style.transform = `translateX(-${currentIndex * 100}%)`;
+      currentIndex = (currentIndex + direction + totalItems) % totalItems;
+
+      console.log('New Index:', currentIndex); // Agregado para depuración
+
+      items[currentIndex].classList.add('active');
+      document.querySelector('.carousel-inner').style.transform = `translateX(-${currentIndex * 100}%)`;
   }
 
   const nextButton = document.querySelector('.next');
   const prevButton = document.querySelector('.prev');
 
   if (nextButton && prevButton) {
-    nextButton.addEventListener('click', () => moveSlide(1));
-    prevButton.addEventListener('click', () => moveSlide(-1));
+      nextButton.addEventListener('click', () => moveSlide(1));
+      prevButton.addEventListener('click', () => moveSlide(-1));
   } else {
-    console.error('Buttons not found');
+      console.error('Buttons not found');
   }
 
-  // API de películas
-  const API_KEY = '41cf3c68';
-  const movieContainer = document.getElementById('movie-container');
-  const movieForm = document.getElementById('movie-form');
-  const movieTitleInput = document.getElementById('movie-title');
-  const initialMovies = ['Inception', 'The Dark Knight', 'Interstellar'];
-
-  async function fetchMovieData(title) {
-    const response = await fetch(`http://www.omdbapi.com/?t=${title}&apikey=${API_KEY}`);
-    const data = await response.json();
-    return data;
-  }
-
-  async function displayMovie(title) {
-    const movieData = await fetchMovieData(title);
-    if (movieData.Response === "True") {
-      const movieElement = document.createElement('div');
-      movieElement.classList.add('movie');
-      movieElement.innerHTML = `
-        <h2>${movieData.Title}</h2>
-        <p>${movieData.Year}</p>
-        <img src="${movieData.Poster}" alt="${movieData.Title}">
-        <p>${movieData.Plot}</p>
-      `;
-      movieContainer.innerHTML = ''; // Clear previous movies
-      movieContainer.appendChild(movieElement);
-    } else {
-      movieContainer.innerHTML = '<p>Película no encontrada</p>';
-    }
-  }
-
-  async function displayInitialMovies() {
-    movieContainer.innerHTML = ''; // Clear previous movies
-    for (const title of initialMovies) {
-      const movieData = await fetchMovieData(title);
-      if (movieData.Response === "True") {
-        const movieElement = document.createElement('div');
-        movieElement.classList.add('movie');
-        movieElement.innerHTML = `
-          <h2>${movieData.Title}</h2>
-          <p>${movieData.Year}</p>
-          <img class="poster" src="${movieData.Poster}" alt="${movieData.Title}">
-          <p>${movieData.Plot}</p>
-        `;
-        movieContainer.appendChild(movieElement);
+  // Función de menú responsive
+  function burger() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+          x.className += " responsive";
+      } else {
+          x.className = "topnav";
       }
-    }
   }
 
-  if (movieForm) {
-    movieForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const title = movieTitleInput.value;
-      displayMovie(title);
-    });
+  // Generación dinámica de la lista de películas
+  const movies = [
+      { id: 'tt0111161', title: 'The Shawshank Redemption' },
+      { id: 'tt0068646', title: 'The Godfather' },
+      { id: 'tt0071562', title: 'The Godfather: Part II' },
+      { id: 'tt0468569', title: 'The Dark Knight' },
+      { id: 'tt0050083', title: '12 Angry Men' },
+      { id: 'tt0108052', title: 'Schindler\'s List' },
+      { id: 'tt0167260', title: 'The Lord of the Rings: The Return of the King' },
+      { id: 'tt0110912', title: 'Pulp Fiction' }
+  ];
+
+  const movieListContainer = document.getElementById('movie-list');
+  const omdbApiKey = '41cf3c68'; // Tu clave de API de OMDB
+
+  async function fetchMoviePoster(imdbID) {
+      const response = await fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=${omdbApiKey}`);
+      const data = await response.json();
+      return data.Poster;
   }
 
-  displayInitialMovies(); // Display initial movies on page load
+  if (movieListContainer) {
+      movies.forEach(async (movie) => {
+          const movieItem = document.createElement('div');
+          movieItem.classList.add('movie-item');
 
-  // Manejo del formulario de solicitud de película
-  const datalist = document.getElementById('years');
-  const input = document.getElementById('movieYear');
-  const startYear = 1900;
-  const endYear = 2024;
+          const movieLink = document.createElement('a');
+          movieLink.href = `pelicula.html?id=${movie.id}`;
 
-  for (let year = startYear; year <= endYear; year++) {
-    const option = document.createElement('option');
-    option.value = year;
-    datalist.appendChild(option);
+          const movieImage = document.createElement('img');
+          movieImage.alt = movie.title;
+          movieImage.style.cursor = 'pointer';
+
+          // Obtener la URL del poster de la API de OMDB
+          const posterUrl = await fetchMoviePoster(movie.id);
+          movieImage.src = posterUrl;
+
+          movieImage.onclick = () => {
+              window.location.href = `pelicula.html?id=${movie.id}`;
+          };
+
+          const movieTitle = document.createElement('p');
+          movieTitle.textContent = movie.title;
+
+          movieLink.appendChild(movieImage);
+          movieItem.appendChild(movieLink);
+          movieItem.appendChild(movieTitle);
+          movieListContainer.appendChild(movieItem);
+      });
   }
 
-  const form = document.getElementById('request-form');
+  // Carga dinámica de detalles de la película
+  const youtubeApiKey = 'AIzaSyAfdJqBEhAo3RLbLpvd74JNOCZBBj44wiw'; // Tu clave de API de YouTube
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = document.getElementById('email');
-    const movieName = document.getElementById('movieName');
-    const movieYear = document.getElementById('movieYear');
-    const language = document.getElementById('language');
-    const terms = document.getElementById('terms');
+  const urlParams = new URLSearchParams(window.location.search);
+  const imdbID = urlParams.get('id');
 
-    let valid = true;
-    let errorMessage = 'Errores encontrados en los siguientes campos:\n';
+  if (imdbID) {
+      fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=${omdbApiKey}`)
+          .then(response => response.json())
+          .then(data => {
+              if (data.Response === "True") {
+                  document.getElementById('movie-title').textContent = data.Title;
+                  document.getElementById('movie-description').textContent = data.Plot;
+                  document.getElementById('movie-year').querySelector('span').textContent = data.Year;
+                  document.getElementById('movie-director').querySelector('span').textContent = data.Director;
+                  document.getElementById('movie-rating').querySelector('span').textContent = data.imdbRating;
 
-    // Clear previous error messages
-    document.querySelectorAll('.error-message').forEach((el) => {
-      el.textContent = '';
-      el.classList.remove('show');
-    });
-
-    // Email validation
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    if (!emailPattern.test(email.value)) {
-      valid = false;
-      const emailError = document.getElementById('email-error');
-      emailError.textContent = 'Incluye una "@" y un "." en la dirección de correo electrónico.';
-      emailError.classList.add('show');
-      email.classList.add('input-error');
-      errorMessage += '- Correo electrónico inválido\n';
-    } else {
-      email.classList.remove('input-error');
-    }
-
-    // Movie name validation
-    if (movieName.value.trim() === '') {
-      valid = false;
-      const movieNameError = document.getElementById('movieName-error');
-      movieNameError.textContent = 'El nombre de la película es obligatorio.';
-      movieNameError.classList.add('show');
-      movieName.classList.add('input-error');
-      errorMessage += '- Nombre de la película es obligatorio\n';
-    } else {
-      movieName.classList.remove('input-error');
-    }
-
-    // Movie year validation
-    const yearPattern = /^(19[0-9]{2}|20[0-2][0-4])$/;
-    if (!yearPattern.test(movieYear.value)) {
-      valid = false;
-      const movieYearError = document.getElementById('movieYear-error');
-      movieYearError.textContent = 'El año debe ser un número de 4 dígitos entre 1900 y 2024.';
-      movieYearError.classList.add('show');
-      movieYear.classList.add('input-error');
-      errorMessage += '- Año de la película inválido\n';
-    } else {
-      movieYear.classList.remove('input-error');
-    }
-
-    // Language validation
-    if (language.value.trim() === '') {
-      valid = false;
-      const languageError = document.getElementById('language-error');
-      languageError.textContent = 'El idioma de la película es obligatorio.';
-      languageError.classList.add('show');
-      language.classList.add('input-error');
-      errorMessage += '- Idioma de la película es obligatorio\n';
-    } else {
-      language.classList.remove('input-error');
-    }
-
-    // Terms and conditions validation
-    if (!terms.checked) {
-      valid = false;
-      const termsError = document.getElementById('terms-error');
-      termsError.textContent = 'Debe aceptar los términos y condiciones.';
-      termsError.classList.add('show');
-      terms.classList.add('input-error');
-      errorMessage += '- Aceptar los términos y condiciones\n';
-    } else {
-      terms.classList.remove('input-error');
-    }
-
-    if (valid) {
-      // Mostrar mensaje de confirmación
-      alert('Formulario enviado correctamente');
-      // Redirigir a la página de menú después de que se cierra la alerta
-      window.location.href = 'menu.html';
-    } else {
-      // Mostrar mensaje de error
-      alert(errorMessage);
-    }
-  });
-
-  // Dynamic filtering of years
-  const movieYearInput = document.getElementById('movieYear');
-
-  movieYearInput.addEventListener('input', () => {
-    const value = movieYearInput.value;
-    const startYear = value.startsWith('2') ? 2000 : 1900;
-    const endYear = 2024;
-    datalist.innerHTML = '';
-
-    if (value.length > 0) {
-      for (let year = startYear; year <= endYear; year++) {
-        if (year.toString().startsWith(value)) {
-          const option = document.createElement('option');
-          option.value = year;
-          datalist.appendChild(option);
-        }
-      }
-    }
-  });
+                  // Buscar el tráiler en YouTube
+                  fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${encodeURIComponent(data.Title + ' trailer')}&key=${youtubeApiKey}`)
+                      .then(response => response.json())
+                      .then(youtubeData => {
+                          const trailerId = youtubeData.items[0].id.videoId;
+                          document.getElementById('trailer').src = `https://www.youtube.com/embed/${trailerId}`;
+                          document.getElementById('movie-external-link').href = `https://www.youtube.com/watch?v=${trailerId}`;
+                      })
+                      .catch(error => console.error('YouTube API error:', error));
+              } else {
+                  console.error('Error fetching movie data:', data.Error);
+              }
+          })
+          .catch(error => console.error('Fetch error:', error));
+  } else {
+      console.error('No IMDb ID provided in URL');
+  }
 });

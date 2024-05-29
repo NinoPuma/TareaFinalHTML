@@ -2,289 +2,330 @@
 
 /* Body styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url('https://images.wallpapersden.com/image/download/the-creator-movie-poster_bmZtZmuUmZqaraWkpJRobWllrWdma2U.jpg') ;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    color: #231e26; /* Main text color */
-  }
-  
-  /* Header styles */
-  header {
-    color: #f8f7f6; /* Light gray */
-    padding: 20px;
-  }
-  
-  /* Navigation styles */
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(39, 35, 58, 0.8);
-    border-radius: 10px;
-  }
-  
-  .logo img {
-    width: 50px;
-    margin-right: 10px;
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-  }
-  
-  .nav-links li {
-    margin-right: 20px;
-  }
-  
-  .nav-links a {
-    color: #f8f7f6; /* Light gray */
-    text-decoration: none;
-  }
-  
-  /* Hero section styles */
-  .hero {
-    max-width: 60%;
-    text-align: left;
-    margin-top: 15%;
-  }
-  
-  .hero h1 {
-    font-size: 60px;
-    margin-bottom: 20px;
-  }
-  
-  .hero p {
-    font-size: 18px;
-    margin-bottom: 30px;
-  }
-  
-  .btn {
-    background-color: #7e809f; /* Grayish blue */
-    color: #f8f7f6; /* Light gray */
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn:hover {
-    background-color: #006aff; /* Dark gray */
-  }
-  
-  /* Footer styles */
-  footer {
-    background-color: #828283; /* Dark gray */
-    color: #f8f7f6; /* Light gray */
-    text-align: center;
-    padding: 20px;
-    bottom: 0%;
-    position: absolute;
-    width: 100%;
-  }
-  /* LOGIN styles */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-  }
-  body{
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    /*background: #f8f7f6;*/
-    color: #231e26; /* Main text color */
-  }
-  form{
-    display: flex;
-    flex-direction: column;
-    background: rgba(39, 35, 58, 0.8);
-    text-align: center;
-    padding: 20px 25px;
-    box-shadow: #231e26;
-  }
-  form .title{
-    font-size: 35px;
-    font-weight: 800;
-    margin-bottom: 30px;
-    color: white;
-  }
-  
-  .logintxt{
-    font-size: 25px;
-    color: white;
-  }
-  
-  input{
-    padding: 10px;
-    margin: 10px 0;
-    border: 2px solid #7e809f;
-    border-radius: 13px;
-    outline: none;
-  }
-  
-  .error-message{
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
-    font-weight: bold;
-    text-align: center;
-    visibility: hidden;
-  }
-  
-  .title{
-    color: white;
-  }
-  
-  .logo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .login-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    border-radius: 10px;
-  }
-  
-  /* Form Container styles */
-.form-container {
-  max-width: 800px; /* Mantener el ancho máximo */
-  margin: 50px auto;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('https://images.wallpapersden.com/image/download/the-creator-movie-poster_bmZtZmuUmZqaraWkpJRobWllrWdma2U.jpg') ;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #231e26; /* Main text color */
+}
+
+/* Header styles */
+header {
+  color: #f8f7f6; /* Light gray */
   padding: 20px;
+}
+
+/* Navigation styles */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: rgba(39, 35, 58, 0.8);
-  color: #f8f7f6; /* Gris claro */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
-.form-title {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #f8f7f6; /* Gris claro */
-}
-
-.form-group {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Distribuir el label y el input */
-  margin-bottom: 15px;
-  flex-wrap: nowrap; /* Asegurar diseño no responsivo para alinear en la misma línea */
-}
-
-.form-group label {
-  width: 40%; /* Ancho ajustado para más espacio */
+.logo img {
+  width: 50px;
   margin-right: 10px;
-  font-weight: bold;
-  color: #f8f7f6; /* Gris claro */
 }
 
-.form-group input,
-.form-group select {
-  width: 60%; /* Ancho ajustado */
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-.checkbox-group {
+.nav-links {
+  list-style: none;
   display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  width: 100%;
-  justify-content: flex-start; /* Alinear elementos a la izquierda */
 }
 
-.checkbox-group input[type="checkbox"] {
-  margin-right: 10px; /* Espacio entre el checkbox y el label */
+.nav-links li {
+  margin-right: 20px;
 }
 
-.checkbox-group label {
-  font-weight: normal;
-  color: #f8f7f6; /* Gris claro */
-  width: auto; /* Permitir que el label tome el espacio necesario */
-  flex: none; /* Evitar que el label tome todo el espacio restante */
-  text-align: left; /* Alinear texto a la izquierda */
+.nav-links a {
+  color: #f8f7f6; /* Light gray */
+  text-decoration: none;
+}
+
+/* Hero section styles */
+.hero {
+  max-width: 60%;
+  text-align: left;
+  margin-top: 15%;
+}
+
+.hero h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
 }
 
 .btn {
-  width: auto; /* Ajustar ancho del botón */
-  background-color: #7e809f; /* Azul grisáceo */
-  color: #f8f7f6; /* Gris claro */
-  padding: 10px 20px; /* Reducir padding */
+  background-color: #7e809f; /* Grayish blue */
+  color: #f8f7f6; /* Light gray */
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #555;
+  background-color: #006aff; /* Dark gray */
 }
 
-/* Ajustar la posición del footer para la página del formulario */
+/* Footer styles */
 footer {
-  background-color: #828283; /* Gris oscuro */
-  color: #f8f7f6; /* Gris claro */
+  background-color: #828283; /* Dark gray */
+  color: #f8f7f6; /* Light gray */
   text-align: center;
   padding: 20px;
-  bottom: 0;
+  bottom: 0%;
+  position: absolute;
   width: 100%;
-  position: relative;
 }
-.popup-message {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+/* LOGIN styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body{
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /*background: #f8f7f6;*/
+  color: #231e26; /* Main text color */
+}
+form{
+  display: flex;
+  flex-direction: column;
+  background: rgba(39, 35, 58, 0.8);
   text-align: center;
+  padding: 20px 25px;
+  box-shadow: #231e26;
 }
-.popup-message.show {
-  display: block;
+form .title{
+  font-size: 35px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: white;
 }
 
-.error-message {
-  display: none;
+.logintxt{
+  font-size: 25px;
+  color: white;
+}
+
+input{
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #7e809f;
+  border-radius: 13px;
+  outline: none;
+}
+
+.error-message{
   color: red;
-  font-size: 12px;
+  font-size: 14px;
   margin-top: 5px;
   font-weight: bold;
-  text-align: left;
-  position: absolute; /* Posición absoluta para los mensajes de error */
-  right: 0; /* Alineación a la derecha */
-  top: 50%;
-  transform: translateY(-50%); /* Centrar verticalmente */
-  background-color: #f8d7da; /* Fondo rojo claro */
-  border: 1px solid #f5c6cb; /* Borde rojo */
-  border-radius: 5px; /* Bordes redondeados */
-  padding: 5px; /* Espaciado interno */
-  z-index: 1000; /* Asegurar que se muestren sobre otros elementos */
+  text-align: center;
+  visibility: hidden;
 }
 
-.error-message.show {
-  display: block;
+.title{
+  color: white;
 }
 
-.input-error {
-  border-color: red;
+.logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.popup-message.show {
-  display: block;
+.login-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  border-radius: 10px;
+}
+
+
+/*Estilos de la pagina pelicula*/
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #2c3e50; /* Fondo verde oscuro */
+  color: white; /* Texto blanco */
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #34495e;
+  padding: 10px;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo img {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+header .logo .title {
+  color: white;
+  font-size: 24px;
+}
+
+header .nav-links {
+  list-style: none;
+}
+
+header .nav-links li {
+  display: inline;
+  margin-left: 20px;
+}
+
+header .nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 5px 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header .nav-links a:hover {
+  background-color: white;
+  color: #34495e;
+}
+
+main {
+  padding: 20px;
+}
+
+#movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Alinea al principio */
+  gap: 20px;
+  padding: 20px;
+}
+
+.movie-item {
+  flex: 0 0 calc(33.333% - 20px);
+  box-sizing: border-box;
+  text-align: center;
+  background-color: rgba(52, 73, 94, 0.1); /* Fondo casi transparente */
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: 1px; /* Mueve hacia la izquierda */
+}
+
+.movie-item a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.movie-item img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.movie-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.movie-item p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: white;
+}
+
+#movie-details {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: #34495e;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#movie-details h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+#movie-details p {
+  margin: 10px 0;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+#movie-details .info {
+  margin-bottom: 20px;
+}
+
+#movie-trailer {
+  margin-top: 20px;
+}
+
+#movie-external-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #2980b9;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+#movie-external-link:hover {
+  background-color: #3498db;
+}
+
+@media (max-width: 768px) {
+  #movie-trailer iframe {
+      width: 100%;
+      height: auto;
+  }
+
+  .movie-item {
+      flex: 0 0 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-item {
+      flex: 0 0 calc(100% - 20px);
+  }
+
+  #movie-title, #movie-description, #movie-year, #movie-director, #movie-rating {
+      display: none;
+  }
+  
+  #movie-trailer iframe {
+      width: 100%;
+      height: 200px;
+  }
 }

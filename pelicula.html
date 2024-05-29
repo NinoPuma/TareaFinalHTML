@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Película</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">
+            <div class="logo">
+              <img src="icon.svg" alt="Peliculón Logo" class="icon">
+              <h1 class="title">Peliculón VOD</h1>
+            </div>
+            </a>
+            <ul class="nav-links">
+              <li><a href="login.html" class="btn">Solicitar película</a></li>
+            </ul>
+          </nav>    </header>
+ 
+    <main>
+        <section id="movie-details">
+            <h1 id="movie-title">Nombre de la película</h1>
+            <p id="movie-description">Descripción/Sinopsis</p>
+            <p id="movie-year">Año: <span></span></p>
+            <p id="movie-director">Director: <span></span></p>
+            <p id="movie-rating">Valoración IMDB: <span></span></p>
+            <div id="movie-trailer">
+                <iframe id="trailer" width="560" height="315" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <a id="movie-external-link" href="#" target="_blank">Ver en YouTube</a>
+        </section>
+    </main>
+    <script src="js/movie.js"></script>
+</body>
+</html>
