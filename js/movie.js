@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Clave de API de YouTube
     const youtubeApiKey = 'AIzaSyAfdJqBEhAo3RLbLpvd74JNOCZBBj44wiw';
 
-
     // Obtener los parámetros de la URL
     const urlParams = new URLSearchParams(window.location.search);
     // Extraer el valor del parámetro 'id' que corresponde al ID de IMDb de la película
@@ -25,15 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById('movie-year').querySelector('span').textContent = data.Year;
                     document.getElementById('movie-director').querySelector('span').textContent = data.Director;
                     document.getElementById('movie-rating').querySelector('span').textContent = data.imdbRating;
-
-                       // Configurar la imagen del póster
-                       const posterImage = document.getElementById('movie-poster');
-                       posterImage.src = data.Poster !== 'N/A' ? data.Poster : defaultPosterUrl;
-                       posterImage.style.width = '280px';
-                       posterImage.style.height = '418px';
-
-
-
 
                     // Buscar el tráiler en YouTube
                     fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${encodeURIComponent(data.Title + ' trailer')}&key=${youtubeApiKey}`)
