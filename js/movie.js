@@ -1,5 +1,5 @@
 // Ejecutar cuando el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Clave de API de OMDB
     const omdbApiKey = '41cf3c68';
     // Clave de API de YouTube
@@ -32,9 +32,18 @@ document.addEventListener('DOMContentLoaded', function() {
                             // Obtener el ID del video del tráiler
                             const trailerId = youtubeData.items[0].id.videoId;
                             // Actualizar el iframe para mostrar el tráiler
-                            document.getElementById('trailer').src = `https://www.youtube.com/embed/${trailerId}`;
+                            const iframe = document.getElementById('trailer');
+                            if (iframe) {
+                                iframe.src = `https://www.youtube.com/embed/${trailerId}?autoplay=1&mute=1`;
+                                iframe.setAttribute('allow', 'autoplay; fullscreen');
+                                iframe.setAttribute('allowfullscreen', '');
+                            }
+
                             // Actualizar el enlace externo al tráiler en YouTube
-                            document.getElementById('movie-external-link').href = `https://www.youtube.com/watch?v=${trailerId}`;
+                            const externalLink = document.getElementById('movie-external-link');
+                            if (externalLink) {
+                                externalLink.href = `https://www.youtube.com/watch?v=${trailerId}&autoplay=1&mute=1`;
+                            }
                         })
                         .catch(error => console.error('YouTube API error:', error)); // Manejar errores de la API de YouTube
                 } else {
